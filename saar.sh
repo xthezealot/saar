@@ -182,7 +182,7 @@ if ! in_array "uncover" "${skips[@]}"; then
 	}
 
 	grep -P "$re_domain" "$HOSTS_FILE" | while read -r line; do
-		log_msg "discovering hosts for $line"
+		log_msg "discovering hosts based on $line"
 		uncover_search "-hunterhow" "domain=\"$line\"" &
 		uncover_search "-censys" "$line" &
 	done
