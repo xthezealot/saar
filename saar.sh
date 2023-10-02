@@ -75,6 +75,8 @@ while [[ "$#" -gt 0 ]]; do
 	-up | -update | --update)
 		log_msg "updating saar and its dependencies"
 
+		curl -fLSs -o /usr/local/bin/saar https://raw.githubusercontent.com/xthezealot/saar/main/saar.sh
+
 		apt update && apt install -y gcc jq libpcap-dev nmap
 		CGO_ENABLED=1 go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 		go install github.com/mikefarah/yq/v4@latest
@@ -86,10 +88,10 @@ while [[ "$#" -gt 0 ]]; do
 		go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 		go install github.com/projectdiscovery/uncover/cmd/uncover@latest
 		go install github.com/tomnomnom/waybackurls@latest
-		curl -sSfL https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sh -s -- -b /usr/local/bin
+		curl -fLSs https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sh -s -- -b /usr/local/bin
 
 		mkdir -p /usr/local/share/wordlists
-		# download wordlists
+		curl -fLSs -o "$GENERIC_PATHS_WORDLIST" https://raw.githubusercontent.com/xthezealot/saar/main/wordlists/paths.txt
 
 		exit
 		;;
