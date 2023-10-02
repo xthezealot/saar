@@ -10,7 +10,7 @@ Saar is a bug bounty script combining the best tools for a smooth recon workflow
    ```
 2. Configure dependencies:
    - To find more subdomains, add API keys to [`$HOME/.config/subfinder/provider-config.yaml`](https://github.com/projectdiscovery/subfinder#post-installation-instructions)
-   - To find more hosts, Add API keys to [`$HOME/.config/uncover/provider-config.yaml`](https://github.com/projectdiscovery/uncover#provider-configuration)
+   - To find more hosts, add API keys to [`$HOME/.config/uncover/provider-config.yaml`](https://github.com/projectdiscovery/uncover#provider-configuration)
    - To be notified of new findings, add your Telegram bot to [`$HOME/.config/notify/provider-config.yaml`](https://github.com/projectdiscovery/notify#provider-config)
      ```yml
      telegram:
