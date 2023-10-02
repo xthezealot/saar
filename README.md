@@ -26,9 +26,9 @@ Saar is a bug bounty script combining the best tools for a smooth recon workflow
 For every new hunt:
 
 1. Make a new directory and move in
-2. Create a `scope.txt` file a add your targets inside (domain, IP, CIDR, ASN), 1 per line
+2. Create a `scope.txt` file and add your targets (domain, IP, CIDR, ASN), one per line
 3. Run `saar` (you can skip steps with `-skip` flags)
-4. After the scan has finished, see:
+4. Once the scan is complete, see:
    - `ports.txt` for open ports
    - `ports.gnnmap` for additional port info from Nmap
    - `http.txt` (and the `http` directory) for successful HTTP requests (use command `saar pphttp` for a better view)
