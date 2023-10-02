@@ -35,9 +35,9 @@ echo '
 SCOPE_FILE="scope.txt"               # the source scope
 HOSTS_FILE="hosts.txt"               # all potential hosts that have existed through times, can only grow
 PORTS_FILE="ports.txt"               # only active hosts with open ports since the last scan
+PORTS_NMAP_FILE="ports.gnnmap"       # additional nmap results
 HTTP_FILE="http.txt"                 # responses from http requests
 HTTP_RES_DIR="http"                  # saved responses from http requests
-PORTS_NMAP_FILE="ports.gnnmap"       # additional map results
 PATHS_WORDLIST="wordlists/paths.txt" # paths wordlist from wayback archive and other sources, can only grow
 SECRETS_FILE="secrets.txt"           # found secrets, based on entropy and known formats
 VULNS_FILE="vulns.txt"               # found vulnerabilities
@@ -68,11 +68,7 @@ while [[ "$#" -gt 0 ]]; do
 			' "$HTTP_FILE"
 		exit
 		;;
-	-s | -skip | --skip)
-		shift
-		skips+=("$1")
-		;;
-	-up | -update | --update)
+	update)
 		log_msg "updating saar and its dependencies"
 
 		curl -fLSs -o /usr/local/bin/saar https://raw.githubusercontent.com/xthezealot/saar/main/saar.sh
@@ -95,6 +91,10 @@ while [[ "$#" -gt 0 ]]; do
 
 		exit
 		;;
+	-s | -skip | --skip)
+		shift
+		skips+=("$1")
+		;;
 	-h | -help | --help)
 		echo "Saar is a bug bounty script that discovers targets from a scope and performs all the usual scans.
 
@@ -103,10 +103,10 @@ Usage:
 
 Commands:
     pphttp    pretty print $HTTP_FILE results
+    update    update saar and its dependencies
 
 Flags:
     -s, -skip string    skip a step (flag can be used multiple times) (choices: subs, uncover, portscan, wordlists, http, vulns)
-    -up, -update        update saar and its dependencies
 		"
 		exit
 		;;
