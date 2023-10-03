@@ -313,10 +313,6 @@ if ! in_array "vulns" "${skips[@]}"; then
 		{
 			echo "*Vulns found:*"
 			echo "\`$(realpath "$VULNS_FILE")\`"
-			echo
-			echo "\`\`\`"
-			cat "$VULNS_FILE"
-			echo "\`\`\`"
 		} | notify -silent -bulk
 	fi
 fi
