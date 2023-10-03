@@ -125,8 +125,6 @@ if [ ! -f "$SCOPE_FILE" ]; then
 	exit
 fi
 
-mkdir -p wordlists
-
 SCOPE_DOMAINS=$(grep -P "^$re_domain$" "$SCOPE_FILE")
 SCOPE_IPV4=$(grep -P "^$re_ipv4$" "$SCOPE_FILE")
 SCOPE_IPV6=$(grep -P "^$re_ipv6$" "$SCOPE_FILE")
@@ -211,6 +209,8 @@ fi
 ### make path wordlist ###
 
 if ! in_array "wordlists" "${skips[@]}"; then
+	mkdir "wordlists"
+
 	domains=$(grep -P "$re_domain" "$HOSTS_FILE")
 
 	# get disallowed paths from robots.txt
