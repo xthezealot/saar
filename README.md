@@ -27,7 +27,11 @@ For every new hunt:
 
 1. Make a new directory and move in
 2. Create a `scope.txt` file and add your targets (domain, IP, CIDR, ASN), one per line
-3. Run `saar` (you can skip steps with `-skip` flags)
+3. Run `saar` (you can skip steps with `-skip` flags)  
+   **Tip:** Sometimes a large number of garbage subdomains are found, and you want to filter them out manually so as not to waste time. In this case, split the workflow:
+   1. Stop after subdomains have been found: `saar -skip uncover -skip portscan -skip wordlists -skip http -skip vulns`
+   2. Remove garbage
+   3. Carry on: `saar -skip subs`
 4. Once the scan is complete, see:
    - `ports.txt` for open ports
    - `ports.gnnmap` for additional port info from Nmap
