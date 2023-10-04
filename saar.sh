@@ -284,7 +284,7 @@ if ! in_array "vulns" "${skips[@]}"; then
 		local tags=$2
 
 		log_msg "checking vulns on $tags"
-		grep -E ":$port$" "$PORTS_FILE" | nuclei -silent -tags "$tags" -severity low,medium,high,critical,unknown >>"$VULNS_FILE"
+		grep -E ":$port$" "$PORTS_FILE" | nuclei -silent -tags "$tags" -severity low,medium,high,critical,unknown -follow-redirects >>"$VULNS_FILE"
 	}
 
 	scan_vulns "21" "ftp,sftp" &
