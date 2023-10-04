@@ -291,18 +291,18 @@ if ! in_array "vulns" "${skips[@]}"; then
 	scan_vulns "22" "ssh" &
 	scan_vulns "23" "telnet" &
 	scan_vulns "445" "smb" &
-	scan_vulns "1433" "sql,db,microsoft,sqlserver," &
-	scan_vulns "1521" "sql,db,oracle" &
-	scan_vulns "2375" "docker,container,containers" &
-	scan_vulns "3306" "sql,db,mysql,maria,mariadb" &
-	scan_vulns "5432" "sql,db,postgresql,postgre,postgres,psql,pgsql" &
-	scan_vulns "9200" "elasticsearch,elastic,db" &
-	scan_vulns "10250" "kubernetes,kubelet,container,containers" &
-	scan_vulns "27017" "mongodb,mongo,nosql" &
+	scan_vulns "1433" "db,microsoft,sql,sqlserver" &
+	scan_vulns "1521" "db,oracle,sql" &
+	scan_vulns "2375" "container,containers,docker" &
+	scan_vulns "3306" "db,maria,mariadb,mysql,sql" &
+	scan_vulns "5432" "db,pgsql,postgre,postgres,postgresql,psql,sql" &
+	scan_vulns "9200" "db,elastic,elasticsearch" &
+	scan_vulns "10250" "container,containers,kubelet,kubernetes" &
+	scan_vulns "27017" "mongo,mongodb,nosql" &
 	scan_vulns "($(
 		IFS="|"
 		echo "${http_portlist[*]}"
-	))" "http,https,tls,ssl,iis,cms" &
+	))" "apache,api,app,backdoor,backup,blind,cms,config,creds-stuffing,crlf,default-login,disclosure,django,env,exposure,files,git,github,gitlab,hackerone,http,https,iis,intrusive,laravel,lfi,login-check,logs,misconfig,mysql,nginx,oauth,panel,php,proxy,rails,rce,sqli,ssl,ssl,ssrf,swagger,takeover,tls,token,tokens,unauth,xss,xxe" &
 
 	wait
 
