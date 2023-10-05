@@ -44,7 +44,7 @@ VULNS_FILE="vulns.txt"               # found vulnerabilities
 
 GENERIC_PATHS_WORDLIST="/usr/local/share/wordlists/saar_paths.txt"
 
-http_portlist=(80 443 3000 5000 8000 8008 8080 8081 8443 8888)
+http_portlist=(80 443 3000 5000 8000 8001 8008 8010 8080 8081 8443 8444 8888)
 portlist=("${http_portlist[@]}" 21 22 23 445 1433 1521 2375 3306 5432 9200 10250 27017)
 
 re_domain="[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
