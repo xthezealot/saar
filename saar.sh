@@ -112,6 +112,7 @@ Flags:
 		;;
 	*)
 		echo "unknown argument: $1"
+		exit
 		;;
 	esac
 	shift
